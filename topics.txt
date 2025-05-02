@@ -1,0 +1,314 @@
+hoisting done
+implict type corecion   done 
+js is dynimaclly typed language 
+NAN not a number happens when we do mathematically impossible task like 3/0  
+9. Explain passed by value and passed by reference.
+In JavaScript, primitive data types are passed by value and non-primitive data types are passed by reference.
+10. What is an Immediately Invoked Function in JavaScript?
+11. What do you mean by strict mode in javascript and characteristics of javascript strict-mode?
+12. Explain Higher Order Functions in javascript.
+{
+      Real-World HOF Examples in JavaScript:
+map()
+
+filter()
+
+reduce()
+
+forEach()
+  
+setTimeout()
+}
+13. Explain “this” keyword.
+14. What do you mean by Self Invoking Functions?
+15. Explain call(), apply() and, bind() methods.
+17. What is currying in JavaScript?
+19. Explain Scope and Scope Chain in javascript.
+20. Explain Closures in JavaScript.
+22. What are object prototypes?
+23. What are callbacks?
+🏗️ What is the Use of a Constructor Function in JavaScript?
+2. What do mean by prototype design pattern?
+
+
+src script cant have both file path and code inside 
+use stict 
+alert prompt confirm 
+
+Nullish coalescing operator '?? can be used in default also and there is other way also 
+local variable and outer variable 
+{
+      function showMessage(from, text = anotherFunction()) {
+  // anotherFunction() only executed if no text given
+  // its result becomes the value of text
+}
+}
+default parameter handling in js 
+
+label in functions 
+
+5***-> to get inner information and code a function solve()
+alert(solve);
+or 
+console.log(solve);
+6*-->
+console.dir(solve) to get all information locally or go to inspect browser 
+7-->
+function is value so it can be stored in another variable also  
+
+function greet()
+{
+     console.log("Hello, World!");
+}
+
+let y=greet;
+y();
+
+8*---> if function expression like above decleared within block it will accesed within block  this will not work as function is value is defined in let and it is block scope
+let age = 18;
+
+if (age < 18) {
+  function welcome() { alert("Hello!"); }
+} else {
+  function welcome() { alert("Greetings!"); }
+}
+
+welcome(); // ❌ Error
+
+let age = 18;
+let welcome;
+
+if (age < 18) {
+  welcome = function() { alert("Hello!"); };
+} else {
+  welcome = function() { alert("Greetings!"); };
+}
+
+welcome(); // ✅ Works
+
+
+9*---> 
+when a function create dwithout { } then it return single values 
+in object we can create key name of multi line as "hell ji" : "hello world"
+-> in objects ,to delete property delete user.age 
+we can follow square bracket notaion also to get property and set  
+
+dynamic property name in object use square bracket 
+If the variable name matches the property name, you can write shorthand:
+-->
+__proto__ is special because it’s used internally to point to an object’s prototype (inheritance chain).
+with proto we can inherit another object properties and methods
+Accessing a missing property does NOT throw an error.
+It just gives undefined.
+**  in checks whether a property actually exists inside an object, no matter what its value is.
+17) ✅ for..in is used to loop through all enumerable properties (keys) of an objects
+
+18> Objects are copied by reference:In JavaScript, two objects are equal only if they are the EXACT SAME object in memory.
+Their contents (properties) don't matter for equality.
+const objects can still be modified:const means the reference (address) cannot change.
+But the inside contents of the object (like name) can change.
+
+user  --> (memory) { name: "John" }
+You can update 'name' inside memory.
+But you can't point 'user' to a new object.
+
+$$ Solution: Clone (make a new independent object)
+
+$$ let user = { name: "John", age: 30 };
+let clone = Object.assign({}, user);
+
+$$ easest cloning let clone = { ...user };
+
+$$ Problem: Nested objects
+let user = {
+  name: "John",
+  sizes: {
+    height: 182,
+    width: 50
+  }
+};
+
+let clone = Object.assign({}, user);
+It is still a reference to the same sizes object inside user.
+When cloning an object like this:nested clone is still referenced  
+$$  Deep cloning = copy everything, even nested objects separately.
+You can do deep cloning using structuredClone()
+let clone = structuredClone(user);
+
+$$ Bonus: Circular references
+
+$$ Limitations of structuredClone:
+It cannot clone functions.
+It cannot clone DOM elements or special objects like Map, Set without loss.
+
+$$   If you need a more powerful deep clone:Use libraries like: _.cloneDeep(obj) from lodash.
+$$ garbage collection happend when function not able to reach that variable
+$$ Method shorthand
+There exists a shorter syntax for methods in an object literal:
+$$  this” is not bound
+Chaining
+importance: 2
+There’s a ladder object that allows you to go up and down:
+
+let ladder = {
+  step: 0,
+  up() {
+    this.step++;
+  },
+  down() {
+    this.step--;
+  },
+  showStep: function() { // shows the current step
+    alert( this.step );
+  }
+};
+
+$$ new keyword to create new object 
+$$ new function() { … }
+If we have many lines of code all about creation of a single complex object, we can wrap them in an immediately called constructor function, like this:
+
+$$ Optional Chaining (?.) in JavaScript
+Why we need it:
+
+Sometimes we access nested object properties that might not exist.
+How to use ?.
+Access properties:
+user?.address?.street
+
+Call functions:
+user?.sayHi?.()
+
+Access array elements:
+user.friends?.[0]
+$$ Symbol type it is used make similiar type object distinct
+
+Without Symbols, the two id properties could conflict.
+With Symbols, they stay separate and safe.
+
+$$ array are special object   which contain multiple inbuilt functions 
+
+$$ 📚 What are Iterables?
+Iterable = an object that can be looped over (like with for...of).
+
+It must have a special method called Symbol.iterator.
+
+✅ Examples of iterables:
+
+Arrays []
+
+Strings "abc"
+
+Maps
+
+Sets
+
+(your custom object if you add Symbol.iterator)
+An iterable is an object that can be used in a for..of loop.
+
+✅ To make an object iterable:
+
+It must have a method called Symbol.iterator.
+
+That method must return an iterator (an object with a next() method).
+
+$$ map and set  in js 
+A Map is a collection of key-value pairs where the keys can be of any data type (not just strings or symbols), and the values can be any data type as well. It allows you to store
+
+Yes, a nested Map can be created in JavaScript. A nested Map simply means that the value associated with a key in the Map can itself be another Map.
+
+$$  WeakMap and weaksets
+A WeakMap is like a Map, but only allows objects as keys (not strings, numbers, etc.).
+
+Keys in a WeakMap are weakly referenced — if no other reference to the key object exists, it can be garbage-collected automatically.
+
+$$ Object.keys, values, entries   to Useful for transforming objects into arrays.
+
+so we can use array method like filter reduce map
+
+$$ Destructuring assignment for array and objects 
+
+$$ Date and time  it is built in object 
+it has full list of methods 
+
+$$ JSON methods, toJSON
+2. Two important JSON methods
+functions and symbols are ignored 
+
+Method	Purpose
+JSON.stringify(obj)	Converts a JavaScript object → JSON string
+JSON.parse(json)	Converts a JSON string → JavaScript object
+
+$$ Recursion and stack
+$$  Rest Parameters – Gather multiple values into an array
+Spread Syntax – Expand values from arrays or objects
+
+$$  Variable scope, closure  
+let and const is block scope 
+closur: A function remembers the scope where it was defined, not where it was called.
+That remembered scope is its Lexical Environment.
+var is . Function Scope (Not Block Scope)
+Bad: var ignores block {} and still exists outside.
+
+$$ global objects  
+Only var attaches to the global object — not let or const.
+In a browser it is named window, for Node.js it is global, for other environments it may have another name.
+
+Recently, globalThis was added to the language, as a standardized name for a global object, that should be supported across all environments. It’s supported in all major browsers.
+
+$$$$$$$$$$   As we already know, a function in JavaScript is a value.
+
+Every value in JavaScript has a type. What type is a function?
+
+In JavaScript, functions are objects.
+$$   The "new Function" syntax
+let func = new Function ([arg1, arg2, ...argN], functionBody);
+
+$$  Scheduling: setTimeout and setInterval
+setTimeout — Run Once After Delay
+setInterval — Run Repeatedly After Delay
+In setTimeout and setInterval, the ...args are optional arguments passed to the callback function.
+
+$$ Decorators and forwarding, call/apply
+ | Method | Usage | Arguments |
+|--------|-------|-----------|
+| `call()` | `fn.call(thisArg, arg1, arg2, ...)` | Passed one by one |
+| `apply()` | `fn.apply(thisArg, [argsArray])` | Passed as an array |
+
+
+$$Property flags and descriptors     
+
+$$ In JavaScript, getters and setters allow you to define custom behavior when a property is accessed or assigned.
+-------------->
+prototype allow us to inherit other object methods and properties 
+
+---------> classes amd class inheritence in js 
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+
+  greet() {
+    console.log(`Hello, I'm ${this.name}`);
+  }
+}
+
+const rahul = new Person("Rahul");
+rahul.greet(); // Hello, I'm Rahul
+2. Class Inheritance
+--------->
+error handling 
+try catch,try catch finaaly 
+-------->callback,async await,promise 
+callback ->promises->async await 
+
+
+1. Callback
+A callback is a function passed as an argument to another function and is executed after some operation is completed.
+| Concept      | Style          | Error Handling     | Readability |
+|--------------|----------------|--------------------|-------------|
+| Callback     | Nested         | Manual             | Low         |
+| Promise      | `.then()`      | `.catch()`         | Moderate    |
+| Async/Await  | Synchronous-ish| `try/catch`        | High        |
+
+------>
+export import good one 

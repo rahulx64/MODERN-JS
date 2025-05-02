@@ -1,0 +1,64 @@
+Timestamp:
+
+00:00 JavaScript DOM Table of Content
+01:58 what is DOM 
+02:15 What is nodes and type of nodes
+04:34 Selecting elements using DOM
+04:44 getElementById()
+07:10 getElementsByName()
+08:57 getElementsByTagName()
+10:32 getElementsByClassName()
+13:53 querySelector() and querySelectorAll()
+
+18:27 Traversing elements
+18:39 Selecting parent element
+20:17 Selecting child element
+24:04 Selecting Sibling elements
+
+25:40 Manipulating HTML elements
+25:49 createElement()
+29:50 appendChild()
+32:54 textContent
+35:53 innerHTML
+37:05 after()
+38:02 append()
+38:46 prepend()
+39:01 insertAdjacentHTML()
+41:31 replaceChild()
+41:57 cloneNode()
+43:20 removeChild()
+44:13 insertBefore()
+
+45:24 Attribute methods
+48:01 getAttribute()
+49:03 setAttribute()
+50:35 hasAttribute()
+52:12 removeAttribute()
+
+53:21 Manipulating Element's Styles
+53:31 style property
+56:52 cssText
+59:41 getComputedStyle()
+01:03:36 className property
+01:07:17 classList property
+
+JavaScript Events
+01:14:20 What is event in JavaScript
+01:15:54 Event Bubbling & Event Capturing
+01:17:18 Event Handler in HTML Attributes
+01:20:42 Event Objects
+01:23:40 DOM Level 0 event handlers
+01:26:11 addEventListener() and 
+01:30:35 removeEventListener()
+01:31:37 Different Types of Event
+
+------>
+In HTML, you're mainly dealing with 6 types: 1, 3, 8, 9, 10, 11.
+| Node Type Code | Node Type Name         | Description                             |
+|----------------|------------------------|-----------------------------------------|
+| `1`            | `ELEMENT_NODE`         | HTML elements (`<div>`, `<p>`, etc.)    |
+| `3`            | `TEXT_NODE`            | Text inside elements or attributes      |
+| `8`            | `COMMENT_NODE`         | Comments (`<!-- comment -->`)           |
+| `9`            | `DOCUMENT_NODE`        | The `document` object itself            |
+| `10`           | `DOCUMENT_TYPE_NODE`   | The `<!DOCTYPE>` declaration            |
+| `11`           | `DOCUMENT_FRAGMENT_NODE` | Temporary container for DOM parts     |

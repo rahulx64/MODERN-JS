@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dom manipulation</title>
+    <script src="first.js"></script>
+    <link rel="stylesheet" href="first.css" />
+  </head>
+  <body style="background-color: red ">
+     <ul id="mylist">
+          <li>Item 1</li>
+          <li>Item 2</li>
+          <li>Item 3</li>
+     </ul>
+
+    <script>
+          let x=document.getElementById("mylist");
+          let y=document.createElement("li");
+          let z=document.createElement("li");
+         z.textContent="Item 5";
+        
+          y.textContent="Item 4";
+          // x.appendChild(y);
+          x.after(z,y);
+          
+    </script>
+
+
+  </body>
+</html>
+
+<!-- node.nodeType -->
+<!-- 25:40 Manipulating HTML elements
+25:49 createElement()
+29:50 appendChild()
+32:54 textContent
+35:53 innerHTML
+37:05 after()
+38:02 append()
+38:46 prepend()
+39:01 insertAdjacentHTML()
+41:31 replaceChild()
+41:57 cloneNode()
+43:20 removeChild()
+44:13 insertBefore() -->
