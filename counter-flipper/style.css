@@ -1,0 +1,28 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #121212;
+  font-family: sans-serif;
+}
+
+.counter {
+  display: flex;
+  gap: 10px;
+}
+
+.digit {
+  width: 60px;
+  height: 80px;
+  background: #1e1e1e;
+  color: #00ff90;
+  font-size: 60px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 255, 144, 0.4);
+  transition: transform 0.3s ease-in-out;
+}
