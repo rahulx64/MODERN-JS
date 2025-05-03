@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Color Flipper</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-color: rgb(255, 255, 255);">
+
+     <div id="box" style="height: 200px; width: 200px; background-color: #d52828; border-radius: 50%; position: absolute; "></div>
+
+     </div>
+
+
+  <div class="container">
+    <h1>Div Box: <span id="color">#ffffff</span></h1>
+    <button id="btn">Flip Color</button>
+  </div>
+  <!-- <script src="script.js"></script> -->
+
+  <script>
+
+       const btn=document.getElementById('btn');
+       const colortext=document.getElementById('color');
+       const boxi=document.getElementById('box');
+       
+       function randomColor(){
+          const letter="0123456789ABCDEF";
+          let color="#";
+          for(let i=0;i<6;i++){
+                color+=letter[Math.floor(Math.random()*16)];
+          }
+          return color;
+       }
+
+       btn.addEventListener('click',function(e){
+          const color=randomColor();
+          boxi.style.backgroundColor=color;
+          colortext.textContent=color;
+          console.log(color);
+       })
+
+  </script>
+</body>
+</html>
