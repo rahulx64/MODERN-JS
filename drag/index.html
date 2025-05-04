@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body style="background-color: black">
+    <div class="container">
+      <div class="box" draggable="true">Drag Me 1</div>
+      <div class="box" draggable="true">Drag Me 2</div>
+      <div class="box" draggable="true">Drag Me 3</div>
+      <div class="box" draggable="true">Drag Me 4</div>
+    </div>
+
+    <div class="target"></div>
+
+    <script>
+      let boxs = document.querySelectorAll(".box");
+      let target = document.querySelector(".target");
+      let container = document.querySelector(".container");
+
+      let selected = null;
+
+      // Set selected box on drag start
+      boxs.forEach((box) => {
+        box.addEventListener("dragstart", (event) => {
+          selected = event.target;
+        });
+      });
+
+      // Allow drop on target
+      target.addEventListener("dragover", (e) => {
+        e.preventDefault();
+      });
+
+      // Handle drop on target
+      target.addEventListener("drop", (e) => {
+        if (selected) {
+          target.appendChild(selected);
+          selected = null;
+        }
+      });
+
+      // Allow drop back to container
+      container.addEventListener("dragover", (e) => {
+        e.preventDefault();
+      });
+
+      container.addEventListener("drop", (e) => {
+        if (selected) {
+          container.appendChild(selected);
+          selected = null;
+        }
+      });
+    </script>
+
+    <!-- <script>
+      let boxs = document.querySelectorAll(".box");
+      let target = document.querySelector(".target");
+      let container = document.querySelector(".container");
+        let selected = null;
+      for (let i = 0; i < boxs.length; i++) {
+        boxs[i].addEventListener("dragstart", (event) => {
+          selected = event.target;
+
+          target.addEventListener("dragover", (e1) => {
+            e1.preventDefault();
+          });
+
+          target.addEventListener("drop", (e2) => {
+            // e2.preventDefault();
+            target.appendChild(selected);
+            selected = null;
+          });
+
+          container.addEventListener("dragover", (e1) => {
+            e1.preventDefault();
+          });
+
+          container.addEventListener("drop", (e2) => {
+            // e2.preventDefault();
+            container.appendChild(selected);
+            selected = null;
+          });
+        });
+      }
+    </script> -->
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Digital Clock</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="clock-container">
+      <h1 id="clock">00:00:00:00</h1>
+    </div>
+
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+    <!-- <script src="script.js"></script> -->
+    <!-- <script>
+     let clock = document.getElementById('clock');
+     function updateclock(){
+          let date=new Date();
+          let hours=date.getHours();
+          let minutes=date.getMinutes();
+          let seconds=date.getSeconds();
+
+          clock.innerHTML=`<span>${hours<10 ? "0"+hours:hours}</span>:<span>${minutes<10 ? "0"+minutes:minutes}</span>:<span>${seconds<10 ? "0"+seconds:seconds}</span>`;
+     }
+
+     setInterval(updateclock,1000);
+   </script> -->
+
+    <script>
+      let clock = document.getElementById("clock");
+      let startbtn = document.getElementById("start");
+      let stopbtn = document.getElementById("stop");
+
+      let hours = 0;
+      let minute = 0;
+      let second = 0;
+      let millisecond = 0;
+
+      let intervalid = null;
+
+      function updateclock() {
+        millisecond++;
+        if (millisecond == 100) {
+          millisecond = 0;
+          second++;
+        }
+        if (second == 60) {
+          second = 0;
+          minute++;
+        }
+        if (minute == 60) {
+          minute = 0;
+          hours++;
+        }
+        if (hours == 24) {
+          hours = 0;
+        }
+        clock.innerHTML = `<span>${hours}</span>:<span>${minute}</span>:<span>${second}</span>:<span>${millisecond}</span>`;
+      }
+
+      startbtn.addEventListener("click", function () {
+        if (!intervalid) {
+          intervalid = setInterval(updateclock, 10);
+        }
+      });
+      stopbtn.addEventListener("click", function () {
+            intervalid = null;
+            
+        clearInterval(updateclock);
+      
+      });
+
+      //  setInterval(updateclock, 1);
+    </script>
+  </body>
+</html>
